@@ -31,6 +31,9 @@
     --vejer-d: #1A3D35;
     --brown:   #6B4E2A;
     --brown-d: #3E2A10;
+    --feria:   #8B1A4A;
+    --feria-d: #5C0F30;
+    --feria-l: #FDF0F5;
     --dark:    #1C1208;
     --gray:    #7A6E5F;
     --gold:    #F0C040;
@@ -581,16 +584,106 @@
   .bg-travel  { background: var(--gray); }
   .bg-setenil { background: var(--brown-d); }
   .bg-vejer   { background: var(--vejer-d); }
+  .bg-feria   { background: var(--feria-d); }
   .dot-cordoba { background: var(--terra); }
   .dot-granada { background: var(--olive); }
   .dot-ronda   { background: var(--amber); }
   .dot-cadiz   { background: var(--ocean); }
   .dot-sevilla { background: var(--purple); }
   .dot-travel  { background: var(--gray); }
+  .dot-feria   { background: var(--feria); }
   .foot-cordoba { background: var(--olive); }
   .foot-ronda   { background: var(--amber); }
   .foot-cadiz   { background: var(--ocean); }
   .foot-sevilla { background: var(--purple); }
+
+  /* ── FERIA BANNER ── */
+  .feria-banner {
+    background: var(--feria-d);
+    border-radius: var(--radius);
+    margin-bottom: 14px;
+    overflow: hidden;
+    box-shadow: 0 3px 14px rgba(92,15,48,0.25);
+  }
+  .feria-banner-header {
+    padding: 13px 16px 10px;
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+  }
+  .feria-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: 0.3px;
+  }
+  .feria-sub {
+    font-size: 12px;
+    color: rgba(255,255,255,0.6);
+    margin-top: 2px;
+  }
+  .feria-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 12px 14px;
+    gap: 8px;
+    background: #FDF0F5;
+  }
+  .feria-col-title {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--feria-d);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .feria-col-date {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--feria);
+    margin-top: 3px;
+  }
+  .feria-col-desc {
+    font-size: 11px;
+    color: var(--gray);
+    margin-top: 2px;
+    line-height: 1.35;
+  }
+
+  /* ── FERIA TIPS BOX ── */
+  .feria-tips {
+    background: #FDF0F5;
+    border-radius: var(--radius);
+    margin-bottom: 14px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(92,15,48,0.1);
+  }
+  .feria-tips-header {
+    background: var(--feria-d);
+    padding: 12px 16px;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--gold);
+  }
+  .feria-tip-item {
+    display: flex;
+    gap: 10px;
+    padding: 10px 16px;
+    border-bottom: 1px solid rgba(139,26,74,0.1);
+    align-items: flex-start;
+  }
+  .feria-tip-item:last-child { border-bottom: none; }
+  .feria-tip-icon { font-size: 18px; flex-shrink: 0; }
+  .feria-tip-text {
+    font-size: 13.5px;
+    line-height: 1.45;
+    color: var(--dark);
+  }
+  .feria-tip-text em {
+    display: block;
+    font-style: normal;
+    font-size: 12px;
+    color: var(--feria);
+    font-weight: 600;
+    margin-top: 2px;
+  }
 </style>
 </head>
 <body>
@@ -814,6 +907,31 @@
     </div>
   </div>
 
+  <!-- FERIA BANNER -->
+  <div class="feria-banner">
+    <div class="feria-banner-header">
+      <div class="feria-title">🌸 Feria de Abril de Sevilha · 20–26 Abril 2026</div>
+      <div class="feria-sub">Real de la Feria · Los Remedios · às margens do Guadalquivir</div>
+    </div>
+    <div class="feria-cols">
+      <div>
+        <div class="feria-col-title">Alumbrado</div>
+        <div class="feria-col-date">Seg 20/04 meia-noite</div>
+        <div class="feria-col-desc">Encendido oficial das luzes</div>
+      </div>
+      <div>
+        <div class="feria-col-title">Auge</div>
+        <div class="feria-col-date">Sáb 25 e Dom 26/04</div>
+        <div class="feria-col-desc">Os dias mais intensos</div>
+      </div>
+      <div>
+        <div class="feria-col-title">Encerramento</div>
+        <div class="feria-col-date">Dom 26/04 meia-noite</div>
+        <div class="feria-col-desc">Fogos no Guadalquivir</div>
+      </div>
+    </div>
+  </div>
+
   <!-- DAY 25 -->
   <div class="day-content" id="d25">
     <div class="day-card">
@@ -822,7 +940,7 @@
           <span class="date">25/04</span>
           <div style="display:flex;align-items:center;gap:6px"><span class="from-label">Cádiz</span><span class="day-pill">Sevilha</span></div>
         </div>
-        <div class="weekday">Sexta — Jerez + chegada Sevilha</div>
+        <div class="weekday">Sexta — Jerez + chegada · 1ª noite da Feria</div>
       </div>
       <div class="day-body">
         <div class="schedule-item"><span class="sched-time">09h00</span><div class="sched-dot dot-cadiz"></div><span class="sched-text">Saída para Jerez (~35min)</span></div>
@@ -831,8 +949,9 @@
         <div class="schedule-item"><span class="sched-time">13h15</span><div class="sched-dot" style="background:var(--amber)"></div><span class="sched-text">Saída para Sevilha (~1h15)</span></div>
         <div class="schedule-item"><span class="sched-time">14h30</span><div class="sched-dot dot-sevilla"></div><span class="sched-text">DEVOLVER CARRO ✓ + check-in</span></div>
         <div class="schedule-item"><span class="sched-time">15h30</span><div class="sched-dot dot-sevilla"></div><span class="sched-text">Descanso 1h antes de sair</span></div>
-        <div class="schedule-item"><span class="sched-time">17h00</span><div class="sched-dot dot-sevilla"></div><span class="sched-text">Real Alcázar<em>Menos calor, menos fila · 2h</em></span></div>
-        <div class="schedule-item"><span class="sched-time">Noite</span><div class="sched-dot dot-sevilla"></div><span class="sched-text">Santa Cruz: Casa Morales → Bodega Díaz-Salazar</span></div>
+        <div class="schedule-item"><span class="sched-time">17h00</span><div class="sched-dot dot-sevilla"></div><span class="sched-text">Real Alcázar<em>Ir hoje — menos fila que no fim de semana · 2h</em></span></div>
+        <div class="schedule-item"><span class="sched-time">20h00</span><div class="sched-dot dot-sevilla"></div><span class="sched-text">Santa Cruz: tapas rápidas</span></div>
+        <div class="schedule-item"><span class="sched-time">22h00</span><div class="sched-dot dot-feria"></div><span class="sched-text">🌸 Real de la Feria (Los Remedios)<em>1ª visita · alumbrado, sevillanas, atmosfera</em></span></div>
       </div>
       <div class="card-warn">⚠ Alcázar: reservar online em alcazarsevilla.org</div>
       <div class="card-footer foot-sevilla">Cádiz->Jerez ~35min · Jerez->Sevilha ~1h15</div>
@@ -844,15 +963,16 @@
     <div class="day-card">
       <div class="day-card-header bg-sevilla">
         <div class="date-row"><span class="date">26/04</span><span class="day-pill">Sevilha</span></div>
-        <div class="weekday">Sábado — centro histórico</div>
+        <div class="weekday">Sábado — Feria no auge 🌸</div>
       </div>
       <div class="day-body">
-        <div class="schedule-item"><span class="sched-time">09h00</span><div class="sched-dot dot-sevilla"></div><span class="sched-text">Catedral + subida à Giralda<em>Rampas · vistas panorâmicas</em></span></div>
-        <div class="schedule-item"><span class="sched-time">11h30</span><div class="sched-dot dot-sevilla"></div><span class="sched-text">Barrio de Santa Cruz a pé<em>Sem roteiro rígido</em></span></div>
-        <div class="schedule-item"><span class="sched-time">13h30</span><div class="sched-dot dot-sevilla"></div><span class="sched-text">Travessia para Triana<em>Almoço e tapas na barra</em></span></div>
-        <div class="schedule-item"><span class="sched-time">20h00</span><div class="sched-dot dot-sevilla"></div><span class="sched-text">Flamenco ao vivo ⭐<em>Casa de la Memoria ou Tablao El Arenal</em></span></div>
+        <div class="schedule-item"><span class="sched-time">09h00</span><div class="sched-dot dot-sevilla"></div><span class="sched-text">Catedral + subida à Giralda<em>Ir cedo — fica mais lotada ao longo do dia</em></span></div>
+        <div class="schedule-item"><span class="sched-time">11h30</span><div class="sched-dot dot-sevilla"></div><span class="sched-text">Barrio de Santa Cruz a pé</span></div>
+        <div class="schedule-item"><span class="sched-time">13h30</span><div class="sched-dot dot-sevilla"></div><span class="sched-text">Almoço em Triana</span></div>
+        <div class="schedule-item"><span class="sched-time">16h00</span><div class="sched-dot dot-feria"></div><span class="sched-text">🌸 Passeio de cavalos pelas ruas<em>Sai da Feria em direção ao centro — ver da rua</em></span></div>
+        <div class="schedule-item"><span class="sched-time">18h00</span><div class="sched-dot dot-sevilla"></div><span class="sched-text">Preparar roupa / descanso</span></div>
+        <div class="schedule-item"><span class="sched-time">20h00</span><div class="sched-dot dot-feria"></div><span class="sched-text">🌸 Real de la Feria — o auge<em>Sevillanas · rebujito · casetas públicas · até tarde</em></span></div>
       </div>
-      <div class="card-warn">⚠ Flamenco: reservar 1-2 semanas antes!</div>
     </div>
   </div>
 
@@ -861,14 +981,15 @@
     <div class="day-card">
       <div class="day-card-header bg-sevilla">
         <div class="date-row"><span class="date">27/04</span><span class="day-pill">Sevilha</span></div>
-        <div class="weekday">Domingo</div>
+        <div class="weekday">Domingo — último dia da Feria 🌸</div>
       </div>
       <div class="day-body">
         <div class="schedule-item"><span class="sched-time">08h45</span><div class="sched-dot dot-sevilla"></div><span class="sched-text">Plaza de España — CRÍTICO ir cedo!<em>Depois das 10h fica lotada</em></span></div>
         <div class="schedule-item"><span class="sched-time">10h30</span><div class="sched-dot dot-sevilla"></div><span class="sched-text">Palacio de las Dueñas</span></div>
         <div class="schedule-item"><span class="sched-time">13h00</span><div class="sched-dot dot-sevilla"></div><span class="sched-text">Mercado de Triana<em>Domingo cheio de vida</em></span></div>
-        <div class="schedule-item"><span class="sched-time">Tarde</span><div class="sched-dot dot-sevilla"></div><span class="sched-text">Torre del Oro (exterior) + passeio beira-rio<em>Não encher com mais atrações — tarde solta</em></span></div>
-        <div class="schedule-item"><span class="sched-time">Noite</span><div class="sched-dot dot-sevilla"></div><span class="sched-text">Última rota de tapas em Triana</span></div>
+        <div class="schedule-item"><span class="sched-time">Tarde</span><div class="sched-dot dot-sevilla"></div><span class="sched-text">Torre del Oro (exterior) + passeio beira-rio<em>Tarde solta — não encher</em></span></div>
+        <div class="schedule-item"><span class="sched-time">22h00</span><div class="sched-dot dot-feria"></div><span class="sched-text">🌸 Real de la Feria — última vez</span></div>
+        <div class="schedule-item"><span class="sched-time">00h00</span><div class="sched-dot dot-feria"></div><span class="sched-text">🎆 Fogos no Guadalquivir<em>Encerramento oficial da Feria · espetáculo único</em></span></div>
       </div>
     </div>
   </div>
@@ -991,6 +1112,42 @@
   </div>
 
   <div class="divider"></div>
+  <div class="sec-title" style="color:var(--feria-d)">Feria de Abril</div>
+  <div class="sec-sub">Dicas práticas para a Feria · 25–27 Abril</div>
+
+  <div class="feria-tips">
+    <div class="feria-tips-header">🌸 Como aproveitar a Feria</div>
+    <div class="feria-tip-item">
+      <span class="feria-tip-icon">🎪</span>
+      <span class="feria-tip-text">Casetas públicas têm entrada livre<em>Municipais, partidos políticos e sindicatos — procurar na entrada</em></span>
+    </div>
+    <div class="feria-tip-item">
+      <span class="feria-tip-icon">👗</span>
+      <span class="feria-tip-text">Traje não é obrigatório<em>Uma gravata ou lenço no bolso já é sinal de respeito</em></span>
+    </div>
+    <div class="feria-tip-item">
+      <span class="feria-tip-icon">🍷</span>
+      <span class="feria-tip-text">Bebida típica: rebujito e fino<em>Rebujito = manzanilla + 7UP · Evitar cerveja na Feria</em></span>
+    </div>
+    <div class="feria-tip-item">
+      <span class="feria-tip-icon">🕐</span>
+      <span class="feria-tip-text">Horário: começa ao meio-dia, vai até às 6h<em>O melhor é das 18h em diante · Sábado = mais intenso</em></span>
+    </div>
+    <div class="feria-tip-item">
+      <span class="feria-tip-icon">🚕</span>
+      <span class="feria-tip-text">Como chegar: táxi / Uber até Los Remedios<em>Bus da Tussam também vai ao recinto · Evitar carro</em></span>
+    </div>
+    <div class="feria-tip-item">
+      <span class="feria-tip-icon">💃</span>
+      <span class="feria-tip-text">Flamenco: não precisa de ir ao tablao<em>Há sevillanas ao vivo em todo o lado de graça na Feria</em></span>
+    </div>
+    <div class="feria-tip-item">
+      <span class="feria-tip-icon">🎆</span>
+      <span class="feria-tip-text">Dom 26/04 meia-noite: fogos no Guadalquivir<em>Encerramento oficial — vale ficar acordado</em></span>
+    </div>
+  </div>
+
+  <div class="divider"></div>
   <div class="sec-title">Granada Card</div>
   <div class="sec-sub">Atrações cobertas pelo [GC]</div>
 
@@ -1019,7 +1176,7 @@
     <div class="tip-item"><div class="tip-dot"></div><span class="tip-text">Cádiz: só peixe. Carne aqui é desperdício de viagem.</span></div>
     <div class="tip-item"><div class="tip-dot"></div><span class="tip-text">Albaicín: táxi ao topo, descer a pé pelas ruelas.</span></div>
     <div class="tip-item"><div class="tip-dot"></div><span class="tip-text">Setenil: só visual de manhã. Almoço em Vejer.</span></div>
-    <div class="tip-item"><div class="tip-dot"></div><span class="tip-text">Plaza de España: antes das 9h ou arrependimento.</span></div>
+    <div class="tip-item"><div class="tip-dot"></div><span class="tip-text">Feria: casetas públicas têm entrada livre.</span></div>
     <div class="tip-item"><div class="tip-dot"></div><span class="tip-text">Peça o desconhecido: ortiguillas, pringá, remojón.</span></div>
   </div>
 </div>
