@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Andalusia">
+<title>Roteiro Andalusia · Abril 2025</title>
+<style>
+  /* Fontes do sistema — 100% offline, óptimas no iPhone */
+  /* Serif display: Georgia → fallback robusto e elegante */
+  /* Sans: -apple-system = SF Pro no iPhone, perfeito */
+</style>
+<style>
+  :root {
+    --terra:   #B84A1A;
+    --terra-d: #7A2E08;
+    --terra-l: #E8763A;
+    --sand:    #FAF3E5;
+    --sand-d:  #F0DDB8;
+    --olive:   #4A6035;
+    --olive-d: #2F3D20;
+    --ocean:   #1B5E8A;
+    --ocean-d: #0D3A5C;
+    --amber:   #C47E10;
+    --amber-d: #7A4E08;
+    --purple:  #5C3D7A;
+    --purple-d:#3A2050;
+    --vejer:   #2E6B5E;
+    --vejer-d: #1A3D35;
+    --brown:   #6B4E2A;
+    --brown-d: #3E2A10;
+    --dark:    #1C1208;
+    --gray:    #7A6E5F;
+    --gold:    #F0C040;
+    --white:   #FFFFFF;
+    --warn:    #C0392B;
+    --green:   #2E6B35;
+    --radius:  14px;
+    --nav-h:   64px;
+    --safe-top: env(safe-area-inset-top, 0px);
+    --safe-bot: env(safe-area-inset-bottom, 0px);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: -apple-system, 'Helvetica Neue', Arial, sans-serif;
+    background: var(--sand);
+    color: var(--dark);
+    min-height: 100vh;
+    padding-bottom: calc(var(--nav-h) + var(--safe-bot) + 8px);
+  }
+
+  /* ── TOP HEADER ── */
+  .app-header {
+    background: var(--terra-d);
+    padding: calc(var(--safe-top) + 16px) 20px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 2px solid var(--gold);
+  }
+  .app-header h1 {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 26px;
+    font-weight: 900;
+    color: var(--white);
+    letter-spacing: 0.5px;
+  }
+  .app-header p {
+    font-size: 14px;
+    color: var(--gold);
+    font-weight: 500;
+    margin-top: 3px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  /* ── BOTTOM NAV ── */
+  .bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0; right: 0;
+    height: calc(var(--nav-h) + var(--safe-bot));
+    background: var(--terra-d);
+    display: flex;
+    align-items: flex-start;
+    padding-top: 8px;
+    border-top: 1px solid rgba(255,255,255,0.15);
+    z-index: 100;
+  }
+  .nav-btn {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+    padding: 4px 2px;
+    cursor: pointer;
+    border: none;
+    background: none;
+    color: rgba(255,255,255,0.45);
+    font-family: -apple-system, 'Helvetica Neue', Arial, sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    transition: color 0.2s;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .nav-btn.active { color: var(--gold); }
+  .nav-btn .icon { font-size: 22px; line-height: 1; }
+
+  /* ── SECTIONS ── */
+  .section { display: none; padding: 16px 16px 8px; animation: fadeIn 0.25s ease; }
+  .section.active { display: block; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+
+  /* ── SECTION TITLE ── */
+  .sec-title {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 30px;
+    font-weight: 900;
+    color: var(--terra-d);
+    margin-bottom: 5px;
+  }
+  .sec-sub {
+    font-size: 14px;
+    color: var(--gray);
+    font-weight: 400;
+    margin-bottom: 16px;
+    letter-spacing: 0.3px;
+  }
+
+  /* ── CITY BADGE ── */
+  .city-label {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: var(--white);
+    margin-bottom: 10px;
+  }
+
+  /* ── DAY CARD ── */
+  .day-card {
+    background: #FEFAF0;
+    border-radius: var(--radius);
+    margin-bottom: 14px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(28,18,8,0.10);
+  }
+  .day-card-header {
+    padding: 14px 16px 12px;
+    position: relative;
+  }
+  .day-card-header .date-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+  }
+  .day-card-header .date {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 32px;
+    font-weight: 900;
+    color: var(--white);
+    line-height: 1;
+  }
+  .day-card-header .weekday {
+    font-size: 13px;
+    color: rgba(255,255,255,0.7);
+    font-weight: 400;
+    margin-top: 3px;
+  }
+  .day-pill {
+    background: rgba(255,255,255,0.22);
+    border: 1px solid rgba(255,255,255,0.35);
+    border-radius: 20px;
+    padding: 4px 12px;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+  }
+  .from-label {
+    font-size: 10px;
+    color: rgba(255,255,255,0.6);
+    margin-right: 6px;
+  }
+
+  /* ── SCHEDULE ITEMS ── */
+  .day-body { padding: 14px 16px; }
+  .schedule-item {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 10px;
+    align-items: flex-start;
+  }
+  .schedule-item:last-child { margin-bottom: 0; }
+  .sched-time {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--terra);
+    min-width: 46px;
+    padding-top: 1px;
+    letter-spacing: 0.2px;
+  }
+  .sched-time.no-time { min-width: 46px; }
+  .sched-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    margin-top: 5px;
+    flex-shrink: 0;
+  }
+  .sched-text {
+    font-size: 16px;
+    line-height: 1.45;
+    color: var(--dark);
+    flex: 1;
+  }
+  .sched-text em {
+    display: block;
+    font-style: normal;
+    font-size: 13px;
+    color: var(--gray);
+    margin-top: 2px;
+  }
+
+  /* ── FOOTER BAND ── */
+  .card-footer {
+    padding: 11px 16px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--white);
+    line-height: 1.4;
+  }
+
+  /* ── WARNING ── */
+  .card-warn {
+    background: #FDECEA;
+    border-top: 1px solid #f5c6c2;
+    padding: 10px 16px;
+    font-size: 14px;
+    color: var(--warn);
+    font-weight: 600;
+    display: flex;
+    gap: 6px;
+    align-items: flex-start;
+  }
+
+  /* ── INFO BLOCK ── */
+  .info-block {
+    background: #FEFAF0;
+    border-radius: var(--radius);
+    margin-bottom: 14px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(28,18,8,0.08);
+  }
+  .info-block-header {
+    padding: 12px 16px;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: 0.2px;
+  }
+  .info-block-body {
+    padding: 12px 16px;
+  }
+  .info-line {
+    font-size: 13.5px;
+    line-height: 1.5;
+    color: var(--dark);
+    margin-bottom: 6px;
+    padding-left: 12px;
+    position: relative;
+  }
+  .info-line::before {
+    content: '·';
+    position: absolute;
+    left: 0;
+    color: var(--terra);
+    font-weight: 700;
+  }
+  .info-line.warn-line { color: var(--warn); font-weight: 600; }
+  .info-line.tip-line  { color: var(--vejer-d); font-weight: 600; }
+  .info-line:last-child { margin-bottom: 0; }
+
+  /* ── TAPAS BLOCK ── */
+  .tapas-block {
+    background: #FFF8EC;
+    border-radius: var(--radius);
+    margin-bottom: 14px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(28,18,8,0.08);
+  }
+  .tapas-header {
+    background: var(--terra);
+    padding: 12px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .tapas-header .th-city {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--white);
+  }
+  .tapas-header .th-dishes {
+    font-size: 12px;
+    color: rgba(255,255,255,0.75);
+    font-style: italic;
+    text-align: right;
+    max-width: 55%;
+    line-height: 1.3;
+  }
+  .tapas-bar {
+    padding: 12px 16px;
+    border-bottom: 1px solid rgba(184,74,26,0.1);
+    display: flex;
+    gap: 10px;
+  }
+  .tapas-bar:last-child { border-bottom: none; }
+  .tapas-emoji { font-size: 22px; flex-shrink: 0; }
+  .tapas-info {}
+  .tapas-name { font-size: 15px; font-weight: 700; color: var(--terra-d); }
+  .tapas-desc { font-size: 13px; color: var(--gray); margin-top: 2px; line-height: 1.4; }
+
+  /* ── GC OPTIONAL BOX ── */
+  .gc-box {
+    background: #EFF5E8;
+    border-radius: var(--radius);
+    margin-bottom: 14px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(28,18,8,0.08);
+  }
+  .gc-header {
+    background: var(--green);
+    padding: 12px 16px;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--white);
+  }
+  .gc-item {
+    padding: 11px 16px;
+    border-bottom: 1px solid rgba(46,107,53,0.12);
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--dark);
+    display: flex;
+    gap: 8px;
+  }
+  .gc-item:last-child { border-bottom: none; }
+  .gc-badge {
+    background: var(--green);
+    color: var(--white);
+    font-size: 10px;
+    font-weight: 700;
+    border-radius: 4px;
+    padding: 2px 6px;
+    flex-shrink: 0;
+    margin-top: 2px;
+    letter-spacing: 0.5px;
+  }
+
+  /* ── TIP BAR ── */
+  .tip-bar {
+    background: #FFF3DC;
+    border-radius: var(--radius);
+    padding: 13px 16px;
+    font-size: 14px;
+    color: var(--amber-d);
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 14px;
+    border-left: 3px solid var(--amber);
+  }
+
+  /* ── TRANSPORT TABLE ── */
+  .transport-table {
+    background: var(--ocean-d);
+    border-radius: var(--radius);
+    overflow: hidden;
+    margin-bottom: 14px;
+    box-shadow: 0 2px 8px rgba(28,18,8,0.12);
+  }
+  .transport-table .tt-head {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 10px 14px;
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+  }
+  .transport-table .tt-head span {
+    font-size: 11px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.6);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+  }
+  .transport-table .tt-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 10px 14px;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    gap: 4px;
+  }
+  .transport-table .tt-row:last-child { border-bottom: none; }
+  .transport-table .tt-row.alt { background: rgba(255,255,255,0.06); }
+  .transport-table .tt-date { font-size: 13px; font-weight: 700; color: var(--gold); }
+  .transport-table .tt-trip { font-size: 13px; color: rgba(255,255,255,0.85); }
+  .transport-table .tt-dist { font-size: 12px; color: rgba(255,255,255,0.5); }
+  .transport-table .tt-time { font-size: 13px; color: var(--white); font-weight: 500; text-align: right; }
+
+  /* ── RESERVATIONS ── */
+  .res-block {
+    background: #FFF3E0;
+    border-radius: var(--radius);
+    margin-bottom: 14px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(28,18,8,0.08);
+  }
+  .res-header {
+    background: var(--warn);
+    padding: 12px 16px;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--white);
+  }
+  .res-item {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    padding: 12px 16px;
+    border-bottom: 1px solid rgba(192,57,43,0.1);
+  }
+  .res-item:last-child { border-bottom: none; }
+  .res-num {
+    width: 28px; height: 28px;
+    background: var(--terra);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; font-weight: 700; color: var(--white);
+    flex-shrink: 0;
+  }
+  .res-info {}
+  .res-name { font-size: 15px; font-weight: 700; color: var(--dark); }
+  .res-url { font-size: 13px; color: var(--ocean); font-style: italic; margin-top: 2px; }
+
+  /* ── TIPS BLOCK ── */
+  .tips-block {
+    background: var(--green);
+    border-radius: var(--radius);
+    padding: 14px 16px;
+    margin-bottom: 14px;
+  }
+  .tips-block h3 {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 10px;
+    letter-spacing: 0.3px;
+  }
+  .tip-item {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 9px;
+    align-items: flex-start;
+  }
+  .tip-item:last-child { margin-bottom: 0; }
+  .tip-dot { width: 7px; height: 7px; border-radius: 50%; background: #CCFF88; flex-shrink: 0; margin-top: 6px; }
+  .tip-text { font-size: 14px; color: var(--white); line-height: 1.45; }
+
+  /* ── COVER CARD ── */
+  .cover-card {
+    background: var(--terra-d);
+    border-radius: var(--radius);
+    padding: 24px 20px;
+    margin-bottom: 16px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(122,46,8,0.3);
+  }
+  .cover-card::before {
+    content: '';
+    position: absolute;
+    top: -30px; right: -30px;
+    width: 150px; height: 150px;
+    border-radius: 50%;
+    background: rgba(240,192,64,0.08);
+    pointer-events: none;
+  }
+  .cover-card h2 {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 32px;
+    font-weight: 900;
+    color: var(--white);
+    line-height: 1.1;
+    margin-bottom: 6px;
+  }
+  .cover-card .dates {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .cover-cities {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 16px;
+  }
+  .cover-city-pill {
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 20px;
+    padding: 4px 10px;
+    font-size: 11px;
+    color: rgba(255,255,255,0.85);
+    font-weight: 500;
+  }
+  .cover-info {
+    font-size: 14px;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.7;
+    border-top: 1px solid rgba(255,255,255,0.12);
+    padding-top: 12px;
+  }
+  .cover-info strong { color: rgba(255,255,255,0.85); font-weight: 600; }
+
+  /* ── DAY NAV (horizontal scroll) ── */
+  .day-nav {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding: 0 0 12px;
+    margin-bottom: 4px;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  .day-nav::-webkit-scrollbar { display: none; }
+  .day-nav-btn {
+    flex-shrink: 0;
+    padding: 9px 16px;
+    border-radius: 20px;
+    border: 1.5px solid var(--sand-d);
+    background: var(--white);
+    font-family: -apple-system, 'Helvetica Neue', Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--gray);
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .day-nav-btn.active {
+    background: var(--terra-d);
+    border-color: var(--terra-d);
+    color: var(--white);
+  }
+
+  /* ── DIVIDER ── */
+  .divider {
+    height: 1px;
+    background: var(--sand-d);
+    margin: 6px 0 16px;
+  }
+
+  /* Color helpers */
+  .bg-cordoba { background: var(--terra-d); }
+  .bg-granada { background: var(--olive-d); }
+  .bg-ronda   { background: var(--amber-d); }
+  .bg-cadiz   { background: var(--ocean-d); }
+  .bg-sevilla { background: var(--purple-d); }
+  .bg-travel  { background: var(--gray); }
+  .bg-setenil { background: var(--brown-d); }
+  .bg-vejer   { background: var(--vejer-d); }
+  .dot-cordoba { background: var(--terra); }
+  .dot-granada { background: var(--olive); }
+  .dot-ronda   { background: var(--amber); }
+  .dot-cadiz   { background: var(--ocean); }
+  .dot-sevilla { background: var(--purple); }
+  .dot-travel  { background: var(--gray); }
+  .foot-cordoba { background: var(--olive); }
+  .foot-ronda   { background: var(--amber); }
+  .foot-cadiz   { background: var(--ocean); }
+  .foot-sevilla { background: var(--purple); }
+</style>
+</head>
+<body>
+
+<!-- TOP HEADER -->
+<div class="app-header">
+  <h1>Roteiro Andalusia</h1>
+  <p>18 – 28 Abril 2025 &nbsp;·&nbsp; 10 noites</p>
+</div>
+
+<!-- SECTION: VISÃO GERAL -->
+<div class="section active" id="s-overview">
+  <div class="cover-card">
+    <h2>Andalusia<br>Abril 2025</h2>
+    <div class="dates">18 – 28 Abril · 10 noites</div>
+    <div class="cover-cities">
+      <span class="cover-city-pill">Córdoba</span>
+      <span class="cover-city-pill">Granada</span>
+      <span class="cover-city-pill">Ronda</span>
+      <span class="cover-city-pill">Setenil</span>
+      <span class="cover-city-pill">Vejer</span>
+      <span class="cover-city-pill">Cádiz</span>
+      <span class="cover-city-pill">Jerez</span>
+      <span class="cover-city-pill">Sevilha</span>
+    </div>
+    <div class="cover-info">
+      <strong>Carro:</strong> retirada Córdoba 19/04 · devolução Sevilha 25/04<br>
+      <strong>Regresso:</strong> AVE Sevilha → Madrid 28/04 (~2h30)<br>
+      <strong>Granada Card [GC]</strong> válido dias 19–21
+    </div>
+  </div>
+
+  <div class="transport-table">
+    <div class="tt-head"><span>Data / Cidade</span><span style="text-align:right">Trecho / Tempo</span></div>
+    <div class="tt-row"><div><div class="tt-date">18–19/04</div><div class="tt-trip">Córdoba · a pé</div></div><div style="text-align:right"><div class="tt-time">1 noite</div></div></div>
+    <div class="tt-row alt"><div><div class="tt-date">19/04</div><div class="tt-trip">Córdoba → Granada</div><div class="tt-dist">175 km</div></div><div style="text-align:right"><div class="tt-time">~2h · sair 12h</div></div></div>
+    <div class="tt-row"><div><div class="tt-date">19–21/04</div><div class="tt-trip">Granada · [GC]</div></div><div style="text-align:right"><div class="tt-time">2 noites</div></div></div>
+    <div class="tt-row alt"><div><div class="tt-date">21/04</div><div class="tt-trip">Granada → Ronda</div><div class="tt-dist">160 km</div></div><div style="text-align:right"><div class="tt-time">~2h30 · sair 13h30</div></div></div>
+    <div class="tt-row"><div><div class="tt-date">21–23/04</div><div class="tt-trip">Ronda</div></div><div style="text-align:right"><div class="tt-time">2 noites</div></div></div>
+    <div class="tt-row alt"><div><div class="tt-date">23/04</div><div class="tt-trip">Ronda → Setenil</div><div class="tt-dist">18 km</div></div><div style="text-align:right"><div class="tt-time">~25min · sair 08h45</div></div></div>
+    <div class="tt-row"><div><div class="tt-date">23/04</div><div class="tt-trip">Setenil → Vejer</div><div class="tt-dist">70 km</div></div><div style="text-align:right"><div class="tt-time">~1h15</div></div></div>
+    <div class="tt-row alt"><div><div class="tt-date">23/04</div><div class="tt-trip">Vejer → Cádiz</div><div class="tt-dist">45 km</div></div><div style="text-align:right"><div class="tt-time">~45min</div></div></div>
+    <div class="tt-row"><div><div class="tt-date">23–25/04</div><div class="tt-trip">Cádiz · 2 noites</div></div><div style="text-align:right"><div class="tt-time">chegar ~16h</div></div></div>
+    <div class="tt-row alt"><div><div class="tt-date">25/04</div><div class="tt-trip">Cádiz → Jerez</div><div class="tt-dist">35 km</div></div><div style="text-align:right"><div class="tt-time">~35min · sair 09h</div></div></div>
+    <div class="tt-row"><div><div class="tt-date">25/04</div><div class="tt-trip">Jerez → Sevilha + devolver carro</div><div class="tt-dist">90 km</div></div><div style="text-align:right"><div class="tt-time">~1h15</div></div></div>
+    <div class="tt-row alt"><div><div class="tt-date">25–28/04</div><div class="tt-trip">Sevilha · a pé</div></div><div style="text-align:right"><div class="tt-time">3 noites</div></div></div>
+    <div class="tt-row"><div><div class="tt-date">28/04</div><div class="tt-trip">AVE Santa Justa → Atocha</div></div><div style="text-align:right"><div class="tt-time">~2h30</div></div></div>
+  </div>
+</div>
+
+<!-- SECTION: ROTEIRO DIA A DIA -->
+<div class="section" id="s-dias">
+
+  <!-- Day nav -->
+  <div class="day-nav">
+    <button class="day-nav-btn active" onclick="showDay('d18')">18 Sex</button>
+    <button class="day-nav-btn" onclick="showDay('d19')">19 Sáb</button>
+    <button class="day-nav-btn" onclick="showDay('d20')">20 Dom</button>
+    <button class="day-nav-btn" onclick="showDay('d21')">21 Seg</button>
+    <button class="day-nav-btn" onclick="showDay('d22')">22 Ter</button>
+    <button class="day-nav-btn" onclick="showDay('d23')">23 Qua</button>
+    <button class="day-nav-btn" onclick="showDay('d24')">24 Qui</button>
+    <button class="day-nav-btn" onclick="showDay('d25')">25 Sex</button>
+    <button class="day-nav-btn" onclick="showDay('d26')">26 Sáb</button>
+    <button class="day-nav-btn" onclick="showDay('d27')">27 Dom</button>
+    <button class="day-nav-btn" onclick="showDay('d28')">28 Seg</button>
+  </div>
+
+  <!-- DAY 18 -->
+  <div class="day-content active" id="d18">
+    <div class="day-card">
+      <div class="day-card-header bg-cordoba">
+        <div class="date-row"><span class="date">18/04</span><span class="day-pill">Córdoba</span></div>
+        <div class="weekday">Sexta — chegada</div>
+      </div>
+      <div class="day-body">
+        <div class="schedule-item"><span class="sched-time">17h30</span><div class="sched-dot dot-cordoba"></div><span class="sched-text">Chegada, check-in</span></div>
+        <div class="schedule-item"><span class="sched-time">19h00</span><div class="sched-dot dot-cordoba"></div><span class="sched-text">Passeio Juderia + exterior da Mezquita</span></div>
+        <div class="schedule-item"><span class="sched-time">20h00</span><div class="sched-dot dot-cordoba"></div><span class="sched-text">Ponte Romana iluminada</span></div>
+        <div class="schedule-item"><span class="sched-time">21h00</span><div class="sched-dot dot-cordoba"></div><span class="sched-text">Tapas pela Juderia — jantar leve<em>Bar Santos · Taberna Salinas · €2-4 por tapa</em></span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 19 -->
+  <div class="day-content" id="d19">
+    <div class="day-card">
+      <div class="day-card-header bg-cordoba">
+        <div class="date-row">
+          <div><span class="from-label"></span><span class="date">19/04</span></div>
+          <div style="display:flex;align-items:center;gap:6px"><span class="from-label">Córdoba</span><span class="day-pill">Granada</span></div>
+        </div>
+        <div class="weekday">Sábado — manhã Córdoba + partida</div>
+      </div>
+      <div class="day-body">
+        <div class="schedule-item"><span class="sched-time">08h30</span><div class="sched-dot dot-cordoba"></div><span class="sched-text">Mezquita-Catedral<em>Quase vazia, luz dos arcos — o melhor horário</em></span></div>
+        <div class="schedule-item"><span class="sched-time">10h00</span><div class="sched-dot dot-cordoba"></div><span class="sched-text">Torre Calahorra + Ponte Romana a pé</span></div>
+        <div class="schedule-item"><span class="sched-time">11h00</span><div class="sched-dot dot-cordoba"></div><span class="sched-text">Café + última tapa em Córdoba</span></div>
+        <div class="schedule-item"><span class="sched-time">11h30</span><div class="sched-dot dot-cordoba"></div><span class="sched-text">Retirar carro 🚗</span></div>
+        <div class="schedule-item"><span class="sched-time">12h00</span><div class="sched-dot dot-cordoba"></div><span class="sched-text">Saída para Granada (~2h)</span></div>
+        <div class="schedule-item"><span class="sched-time">14h00</span><div class="sched-dot dot-granada"></div><span class="sched-text">Granada, check-in</span></div>
+        <div class="schedule-item"><span class="sched-time">15h30</span><div class="sched-dot dot-granada"></div><span class="sched-text">Almoço leve com tapas grátis</span></div>
+        <div class="schedule-item"><span class="sched-time">16h30</span><div class="sched-dot dot-granada"></div><span class="sched-text">Táxi ao topo do Albaicín<em>Descer a pé pelas ruelas — nunca subir!</em></span></div>
+        <div class="schedule-item"><span class="sched-time">18h45</span><div class="sched-dot dot-granada"></div><span class="sched-text">Mirador de San Nicolás<em>Chegar 45min antes do pôr do sol</em></span></div>
+        <div class="schedule-item"><span class="sched-time">Noite</span><div class="sched-dot dot-granada"></div><span class="sched-text">Bar Ávila → Los Diamantes → Bodegas Castañeda</span></div>
+      </div>
+      <div class="card-warn">⚠ Reservar Mezquita: mezquita-catedraldecordoba.es</div>
+      <div class="card-footer foot-cordoba">Córdoba -> Granada &nbsp;|&nbsp; ~2h &nbsp;|&nbsp; sair 12h</div>
+    </div>
+  </div>
+
+  <!-- DAY 20 -->
+  <div class="day-content" id="d20">
+    <div class="day-card">
+      <div class="day-card-header bg-granada">
+        <div class="date-row"><span class="date">20/04</span><span class="day-pill">Granada</span></div>
+        <div class="weekday">Domingo — dia completo · Granada Card [GC]</div>
+      </div>
+      <div class="day-body">
+        <div class="schedule-item"><span class="sched-time">09h45</span><div class="sched-dot dot-granada"></div><span class="sched-text">[GC] Capilla Real<em>Túmulos de Fernando e Isabel</em></span></div>
+        <div class="schedule-item"><span class="sched-time">10h30</span><div class="sched-dot dot-granada"></div><span class="sched-text">[GC] Catedral de Granada<em>Ao lado da Capilla Real · ~45min</em></span></div>
+        <div class="schedule-item"><span class="sched-time">11h45</span><div class="sched-dot dot-granada"></div><span class="sched-text">Café estratégico — pausa antes da subida</span></div>
+        <div class="schedule-item"><span class="sched-time">12h30</span><div class="sched-dot dot-granada"></div><span class="sched-text">Táxi para a Alhambra</span></div>
+        <div class="schedule-item"><span class="sched-time">13h00</span><div class="sched-dot dot-granada"></div><span class="sched-text">[GC] Alcazaba<em>Fortaleza · vistas panorâmicas da cidade</em></span></div>
+        <div class="schedule-item"><span class="sched-time">14h00</span><div class="sched-dot dot-granada"></div><span class="sched-text">[GC] Generalife<em>Jardins, sombra, fontes</em></span></div>
+        <div class="schedule-item"><span class="sched-time">15h15</span><div class="sched-dot dot-granada"></div><span class="sched-text">Pausa real 15-20min — sombra + água</span></div>
+        <div class="schedule-item"><span class="sched-time">16h10</span><div class="sched-dot dot-granada"></div><span class="sched-text">Posicionar para entrada nos Nazaríes</span></div>
+        <div class="schedule-item"><span class="sched-time">16h30</span><div class="sched-dot dot-granada"></div><span class="sched-text">[GC] Palácios Nazaríes ⭐<em>HORÁRIO FIXO — chegar 15min antes</em></span></div>
+        <div class="schedule-item"><span class="sched-time">18h15</span><div class="sched-dot dot-granada"></div><span class="sched-text">Descida pela Cuesta de Gomérez<em>Devagar, guitarristas nas escadas</em></span></div>
+        <div class="schedule-item"><span class="sched-time">Noite</span><div class="sched-dot dot-granada"></div><span class="sched-text">Bodegas Castañeda — leve e merecido</span></div>
+      </div>
+      <div class="card-warn">⚠ Nazaríes 16h30 — horário FIXO. Não atrasar.</div>
+    </div>
+  </div>
+
+  <!-- DAY 21 -->
+  <div class="day-content" id="d21">
+    <div class="day-card">
+      <div class="day-card-header bg-granada">
+        <div class="date-row">
+          <span class="date">21/04</span>
+          <div style="display:flex;align-items:center;gap:6px"><span class="from-label">Granada</span><span class="day-pill">Ronda</span></div>
+        </div>
+        <div class="weekday">Segunda — manhã leve + partida</div>
+      </div>
+      <div class="day-body">
+        <div class="schedule-item"><span class="sched-time">09h30</span><div class="sched-dot dot-granada"></div><span class="sched-text">Caminhada leve pelo centro / Albaicín baixo<em>Cidade vazia — muito melhor que mais monumentos</em></span></div>
+        <div class="schedule-item"><span class="sched-time">10h30</span><div class="sched-dot dot-granada"></div><span class="sched-text">Café da manhã longo, sentado, sem pressa<em>Opção B: [GC] Monasterio de San Jerónimo (45min)</em></span></div>
+        <div class="schedule-item"><span class="sched-time">11h30</span><div class="sched-dot dot-granada"></div><span class="sched-text">Últimas tapas grátis em Granada</span></div>
+        <div class="schedule-item"><span class="sched-time">13h30</span><div class="sched-dot dot-ronda"></div><span class="sched-text">Saída para Ronda (~2h30)</span></div>
+        <div class="schedule-item"><span class="sched-time">16h00</span><div class="sched-dot dot-ronda"></div><span class="sched-text">Ronda, check-in</span></div>
+        <div class="schedule-item"><span class="sched-time">17h30</span><div class="sched-dot dot-ronda"></div><span class="sched-text">Primeira vista do Tajo<em>Melhor luz do dia</em></span></div>
+        <div class="schedule-item"><span class="sched-time">18h30</span><div class="sched-dot dot-ronda"></div><span class="sched-text">Centro histórico sem pressa</span></div>
+        <div class="schedule-item"><span class="sched-time">Noite</span><div class="sched-dot dot-ronda"></div><span class="sched-text">Bodega San Francisco + Bar Alegrias</span></div>
+      </div>
+      <div class="card-footer foot-ronda">Granada -> Ronda &nbsp;|&nbsp; ~2h30 &nbsp;|&nbsp; sair 13h30</div>
+    </div>
+  </div>
+
+  <!-- DAY 22 -->
+  <div class="day-content" id="d22">
+    <div class="day-card">
+      <div class="day-card-header bg-ronda">
+        <div class="date-row"><span class="date">22/04</span><span class="day-pill">Ronda</span></div>
+        <div class="weekday">Terça — Ronda completa</div>
+      </div>
+      <div class="day-body">
+        <div class="schedule-item"><span class="sched-time">08h45</span><div class="sched-dot dot-ronda"></div><span class="sched-text">Puente Nuevo<em>Cidade praticamente vazia — melhor hora</em></span></div>
+        <div class="schedule-item"><span class="sched-time">09h30</span><div class="sched-dot dot-ronda"></div><span class="sched-text">Descida ao desfiladeiro — Mirador Aldehuela<em>€2,50 · Fazer cedo = menos calor · Imprescindível</em></span></div>
+        <div class="schedule-item"><span class="sched-time">11h30</span><div class="sched-dot dot-ronda"></div><span class="sched-text">Pausa — café tranquilo, recuperar energia</span></div>
+        <div class="schedule-item"><span class="sched-time">13h00</span><div class="sched-dot dot-ronda"></div><span class="sched-text">Plaza de Toros (1785 — a mais antiga da Espanha)</span></div>
+        <div class="schedule-item"><span class="sched-time">14h30</span><div class="sched-dot dot-ronda"></div><span class="sched-text">Baños Árabes<em>Verificar horários e reservar antes</em></span></div>
+        <div class="schedule-item"><span class="sched-time">Tarde</span><div class="sched-dot dot-ronda"></div><span class="sched-text">Tarde livre — Ronda pede tempo solto</span></div>
+        <div class="schedule-item"><span class="sched-time">Noite</span><div class="sched-dot dot-ronda"></div><span class="sched-text">2ª rota de tapas</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 23 -->
+  <div class="day-content" id="d23">
+    <div class="day-card">
+      <div class="day-card-header bg-ronda">
+        <div class="date-row">
+          <span class="date">23/04</span>
+          <div style="display:flex;align-items:center;gap:6px"><span class="from-label">Ronda</span><span class="day-pill">Cádiz</span></div>
+        </div>
+        <div class="weekday">Quarta — Setenil + Vejer + chegada Cádiz</div>
+      </div>
+      <div class="day-body">
+        <div class="schedule-item"><span class="sched-time">08h45</span><div class="sched-dot dot-ronda"></div><span class="sched-text">Saída para Setenil (~25min)</span></div>
+        <div class="schedule-item"><span class="sched-time">09h15</span><div class="sched-dot" style="background:var(--brown)"></div><span class="sched-text">Setenil de las Bodegas<em>Casas sob a rocha · vazio e fotográfico · Não almoçar aqui</em></span></div>
+        <div class="schedule-item"><span class="sched-time">10h45</span><div class="sched-dot" style="background:var(--brown)"></div><span class="sched-text">Saída para Vejer (~1h15)</span></div>
+        <div class="schedule-item"><span class="sched-time">12h15</span><div class="sched-dot" style="background:var(--vejer)"></div><span class="sched-text">Vejer de la Frontera<em>Cidade ainda vazia · Miradores + ruelas medievais</em></span></div>
+        <div class="schedule-item"><span class="sched-time">13h30</span><div class="sched-dot" style="background:var(--vejer)"></div><span class="sched-text">Almoço em Vejer<em>El Jardín del Califa ou Restaurante Trafalgar</em></span></div>
+        <div class="schedule-item"><span class="sched-time">15h15</span><div class="sched-dot" style="background:var(--vejer)"></div><span class="sched-text">Saída para Cádiz (~45min)</span></div>
+        <div class="schedule-item"><span class="sched-time">16h00</span><div class="sched-dot dot-cadiz"></div><span class="sched-text">Cádiz, check-in</span></div>
+        <div class="schedule-item"><span class="sched-time">17h30</span><div class="sched-dot dot-cadiz"></div><span class="sched-text">Respiro antes de sair</span></div>
+        <div class="schedule-item"><span class="sched-time">18h00</span><div class="sched-dot dot-cadiz"></div><span class="sched-text">Playa de La Caleta<em>Melhor luz do dia · Atlântico</em></span></div>
+        <div class="schedule-item"><span class="sched-time">19h30</span><div class="sched-dot dot-cadiz"></div><span class="sched-text">Barrio de La Viña</span></div>
+        <div class="schedule-item"><span class="sched-time">Noite</span><div class="sched-dot dot-cadiz"></div><span class="sched-text">Casa Manteca → Bodeguita El Adobo</span></div>
+      </div>
+      <div class="card-footer foot-cadiz">Ronda->Setenil ~25min · Setenil->Vejer ~1h15 · Vejer->Cádiz ~45min</div>
+    </div>
+  </div>
+
+  <!-- DAY 24 -->
+  <div class="day-content" id="d24">
+    <div class="day-card">
+      <div class="day-card-header bg-cadiz">
+        <div class="date-row"><span class="date">24/04</span><span class="day-pill">Cádiz</span></div>
+        <div class="weekday">Quinta — Cádiz completo</div>
+      </div>
+      <div class="day-body">
+        <div class="schedule-item"><span class="sched-time">10h00</span><div class="sched-dot dot-cadiz"></div><span class="sched-text">Catedral de Cádiz<em>~45min, objetiva</em></span></div>
+        <div class="schedule-item"><span class="sched-time">11h15</span><div class="sched-dot dot-cadiz"></div><span class="sched-text">Centro histórico + Barrio del Pópulo</span></div>
+        <div class="schedule-item"><span class="sched-time">13h30</span><div class="sched-dot dot-cadiz"></div><span class="sched-text">Almoço — Mercado Central de Abastos<em>Peixe do dia direto do barco · melhor experiência da cidade</em></span></div>
+        <div class="schedule-item"><span class="sched-time">16h30</span><div class="sched-dot dot-cadiz"></div><span class="sched-text">Alameda Apodaca<em>Sombra + vista mar</em></span></div>
+        <div class="schedule-item"><span class="sched-time">18h30</span><div class="sched-dot dot-cadiz"></div><span class="sched-text">Pôr do sol na orla atlântica</span></div>
+        <div class="schedule-item"><span class="sched-time">Noite</span><div class="sched-dot dot-cadiz"></div><span class="sched-text">El Faro (barra) → Freiduría Las Flores</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 25 -->
+  <div class="day-content" id="d25">
+    <div class="day-card">
+      <div class="day-card-header bg-cadiz">
+        <div class="date-row">
+          <span class="date">25/04</span>
+          <div style="display:flex;align-items:center;gap:6px"><span class="from-label">Cádiz</span><span class="day-pill">Sevilha</span></div>
+        </div>
+        <div class="weekday">Sexta — Jerez + chegada Sevilha</div>
+      </div>
+      <div class="day-body">
+        <div class="schedule-item"><span class="sched-time">09h00</span><div class="sched-dot dot-cadiz"></div><span class="sched-text">Saída para Jerez (~35min)</span></div>
+        <div class="schedule-item"><span class="sched-time">10h00</span><div class="sched-dot" style="background:var(--amber)"></div><span class="sched-text">Adega González Byass ou Sandeman<em>Visita + degustação ~1h30 · Reservar online</em></span></div>
+        <div class="schedule-item"><span class="sched-time">12h00</span><div class="sched-dot" style="background:var(--amber)"></div><span class="sched-text">Bar Juanito — tapas clássicas de Jerez</span></div>
+        <div class="schedule-item"><span class="sched-time">13h15</span><div class="sched-dot" style="background:var(--amber)"></div><span class="sched-text">Saída para Sevilha (~1h15)</span></div>
+        <div class="schedule-item"><span class="sched-time">14h30</span><div class="sched-dot dot-sevilla"></div><span class="sched-text">DEVOLVER CARRO ✓ + check-in</span></div>
+        <div class="schedule-item"><span class="sched-time">15h30</span><div class="sched-dot dot-sevilla"></div><span class="sched-text">Descanso 1h antes de sair</span></div>
+        <div class="schedule-item"><span class="sched-time">17h00</span><div class="sched-dot dot-sevilla"></div><span class="sched-text">Real Alcázar<em>Menos calor, menos fila · 2h</em></span></div>
+        <div class="schedule-item"><span class="sched-time">Noite</span><div class="sched-dot dot-sevilla"></div><span class="sched-text">Santa Cruz: Casa Morales → Bodega Díaz-Salazar</span></div>
+      </div>
+      <div class="card-warn">⚠ Alcázar: reservar online em alcazarsevilla.org</div>
+      <div class="card-footer foot-sevilla">Cádiz->Jerez ~35min · Jerez->Sevilha ~1h15</div>
+    </div>
+  </div>
+
+  <!-- DAY 26 -->
+  <div class="day-content" id="d26">
+    <div class="day-card">
+      <div class="day-card-header bg-sevilla">
+        <div class="date-row"><span class="date">26/04</span><span class="day-pill">Sevilha</span></div>
+        <div class="weekday">Sábado — centro histórico</div>
+      </div>
+      <div class="day-body">
+        <div class="schedule-item"><span class="sched-time">09h00</span><div class="sched-dot dot-sevilla"></div><span class="sched-text">Catedral + subida à Giralda<em>Rampas · vistas panorâmicas</em></span></div>
+        <div class="schedule-item"><span class="sched-time">11h30</span><div class="sched-dot dot-sevilla"></div><span class="sched-text">Barrio de Santa Cruz a pé<em>Sem roteiro rígido</em></span></div>
+        <div class="schedule-item"><span class="sched-time">13h30</span><div class="sched-dot dot-sevilla"></div><span class="sched-text">Travessia para Triana<em>Almoço e tapas na barra</em></span></div>
+        <div class="schedule-item"><span class="sched-time">20h00</span><div class="sched-dot dot-sevilla"></div><span class="sched-text">Flamenco ao vivo ⭐<em>Casa de la Memoria ou Tablao El Arenal</em></span></div>
+      </div>
+      <div class="card-warn">⚠ Flamenco: reservar 1-2 semanas antes!</div>
+    </div>
+  </div>
+
+  <!-- DAY 27 -->
+  <div class="day-content" id="d27">
+    <div class="day-card">
+      <div class="day-card-header bg-sevilla">
+        <div class="date-row"><span class="date">27/04</span><span class="day-pill">Sevilha</span></div>
+        <div class="weekday">Domingo</div>
+      </div>
+      <div class="day-body">
+        <div class="schedule-item"><span class="sched-time">08h45</span><div class="sched-dot dot-sevilla"></div><span class="sched-text">Plaza de España — CRÍTICO ir cedo!<em>Depois das 10h fica lotada</em></span></div>
+        <div class="schedule-item"><span class="sched-time">10h30</span><div class="sched-dot dot-sevilla"></div><span class="sched-text">Palacio de las Dueñas</span></div>
+        <div class="schedule-item"><span class="sched-time">13h00</span><div class="sched-dot dot-sevilla"></div><span class="sched-text">Mercado de Triana<em>Domingo cheio de vida</em></span></div>
+        <div class="schedule-item"><span class="sched-time">Tarde</span><div class="sched-dot dot-sevilla"></div><span class="sched-text">Torre del Oro (exterior) + passeio beira-rio<em>Não encher com mais atrações — tarde solta</em></span></div>
+        <div class="schedule-item"><span class="sched-time">Noite</span><div class="sched-dot dot-sevilla"></div><span class="sched-text">Última rota de tapas em Triana</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 28 -->
+  <div class="day-content" id="d28">
+    <div class="day-card">
+      <div class="day-card-header bg-travel">
+        <div class="date-row"><span class="date">28/04</span><span class="day-pill">Partida</span></div>
+        <div class="weekday">Segunda — regresso a Madrid</div>
+      </div>
+      <div class="day-body">
+        <div class="schedule-item"><span class="sched-time">Manhã</span><div class="sched-dot" style="background:var(--gray)"></div><span class="sched-text">Última manhã livre em Santa Cruz</span></div>
+        <div class="schedule-item"><span class="sched-time">AVE</span><div class="sched-dot" style="background:var(--gray)"></div><span class="sched-text">Sevilha Santa Justa → Madrid Atocha<em>~2h30 · Reservar: renfe.com</em></span></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- SECTION: TAPAS -->
+<div class="section" id="s-tapas">
+  <div class="sec-title">Tapas</div>
+  <div class="sec-sub">Por cidade · bares recomendados</div>
+
+  <div class="tapas-block">
+    <div class="tapas-header">
+      <span class="th-city">Córdoba</span>
+      <span class="th-dishes">Salmorejo · Rabo de toro · Flamenquín</span>
+    </div>
+    <div class="tapas-bar"><span class="tapas-emoji">🫙</span><div class="tapas-info"><div class="tapas-name">Bar Santos</div><div class="tapas-desc">Tortilla gigante — em frente à Mezquita, instituição</div></div></div>
+    <div class="tapas-bar"><span class="tapas-emoji">🍲</span><div class="tapas-info"><div class="tapas-name">Taberna Salinas</div><div class="tapas-desc">Salmorejo, carne con tomate — a mais mítica</div></div></div>
+    <div class="tapas-bar"><span class="tapas-emoji">🥗</span><div class="tapas-info"><div class="tapas-name">Taberna Los Berengueles</div><div class="tapas-desc">Ensaladilla caseira, rabo de toro, flamenquín</div></div></div>
+    <div class="tapas-bar"><span class="tapas-emoji">🌿</span><div class="tapas-info"><div class="tapas-name">Casa Mazal</div><div class="tapas-desc">Pátio cordobês, tapas tradicionais, ambiente autêntico</div></div></div>
+  </div>
+
+  <div class="tip-bar">⭐ Granada: cada bebida = tapa GRÁTIS. Vá a 4-5 bares por saída. Cobrar = armadilha turística.</div>
+
+  <div class="tapas-block">
+    <div class="tapas-header">
+      <span class="th-city">Granada</span>
+      <span class="th-dishes">Pescaíto · Jamón asado · Migas</span>
+    </div>
+    <div class="tapas-bar"><span class="tapas-emoji">🍖</span><div class="tapas-info"><div class="tapas-name">Bar Ávila — C/Verónica de la Virgen</div><div class="tapas-desc">Jamón asado lendário. Fila na porta = qualidade</div></div></div>
+    <div class="tapas-bar"><span class="tapas-emoji">🐟</span><div class="tapas-info"><div class="tapas-name">Los Diamantes — C/Navas 26</div><div class="tapas-desc">Pescaíto frito excepcional. Clássico desde 1942</div></div></div>
+    <div class="tapas-bar"><span class="tapas-emoji">🍷</span><div class="tapas-info"><div class="tapas-name">Bodegas Castañeda — C/Almireceros</div><div class="tapas-desc">Barris, solera. Calicasas (vermute caseiro) + embutidos</div></div></div>
+    <div class="tapas-bar"><span class="tapas-emoji">🌾</span><div class="tapas-info"><div class="tapas-name">Los Mascarones — C/Pagés</div><div class="tapas-desc">Albaicín, 100% local. Migas, caracoles. Experiência raiz</div></div></div>
+  </div>
+
+  <div class="tapas-block">
+    <div class="tapas-header">
+      <span class="th-city">Ronda</span>
+      <span class="th-dishes">Rabo de toro · Queso payoyo · Caza</span>
+    </div>
+    <div class="tapas-bar"><span class="tapas-emoji">🎯</span><div class="tapas-info"><div class="tapas-name">Bar Alegrias</div><div class="tapas-desc">Tapas caseiras, ambiente 100% local</div></div></div>
+    <div class="tapas-bar"><span class="tapas-emoji">🧀</span><div class="tapas-info"><div class="tapas-name">Bodega San Francisco</div><div class="tapas-desc">Queso payoyo, embutidos serranos, vinho da casa</div></div></div>
+    <div class="tapas-bar"><span class="tapas-emoji">🫙</span><div class="tapas-info"><div class="tapas-name">Taberna El Lechuguita</div><div class="tapas-desc">Rabo de toro e carne de caza — especialidade da serra</div></div></div>
+  </div>
+
+  <div class="tip-bar">⭐ Cádiz: SÓ PEIXE. Produto atlântico, almadraba, fritos. Pedir carne aqui é desperdício de viagem.</div>
+
+  <div class="tapas-block">
+    <div class="tapas-header">
+      <span class="th-city">Cádiz</span>
+      <span class="th-dishes">Tortillitas · Chicharrones · Pescaíto · Atún</span>
+    </div>
+    <div class="tapas-bar"><span class="tapas-emoji">🥩</span><div class="tapas-info"><div class="tapas-name">Casa Manteca — C/Corralón de los Carros 66</div><div class="tapas-desc">Chicharrones em papel de estraza. O mais autêntico. Desde 1953</div></div></div>
+    <div class="tapas-bar"><span class="tapas-emoji">🐟</span><div class="tapas-info"><div class="tapas-name">Bodeguita El Adobo — C/Rosario 7</div><div class="tapas-desc">Chicharrones de morena en adobo — receita de outro mundo</div></div></div>
+    <div class="tapas-bar"><span class="tapas-emoji">🦑</span><div class="tapas-info"><div class="tapas-name">El Faro (barra) — C/San Félix 15</div><div class="tapas-desc">Tortillitas, pescaíto, atún encebollado. Sempre a barra</div></div></div>
+    <div class="tapas-bar"><span class="tapas-emoji">🍟</span><div class="tapas-info"><div class="tapas-name">Freiduría Las Flores — Plaza de las Flores</div><div class="tapas-desc">Pescaíto em cone de papel, em pé na praça — clássico</div></div></div>
+    <div class="tapas-bar"><span class="tapas-emoji">🍵</span><div class="tapas-info"><div class="tapas-name">Casa Pepe — C/Rosa 28</div><div class="tapas-desc">Guisos marineros do dia. Frequentado por gaditanos</div></div></div>
+    <div class="tapas-bar"><span class="tapas-emoji">🐠</span><div class="tapas-info"><div class="tapas-name">Mercado Central de Abastos</div><div class="tapas-desc">Bares dentro do mercado. Peixe fresco do dia</div></div></div>
+  </div>
+
+  <div class="tapas-block">
+    <div class="tapas-header">
+      <span class="th-city">Jerez</span>
+      <span class="th-dishes">Riñones al jerez · Carne mechada</span>
+    </div>
+    <div class="tapas-bar"><span class="tapas-emoji">🍷</span><div class="tapas-info"><div class="tapas-name">Bar Juanito — C/Pescadería Vieja 8</div><div class="tapas-desc">Riñones al jerez, carne mechada, choco frito. Desde 1946</div></div></div>
+  </div>
+
+  <div class="tapas-block">
+    <div class="tapas-header">
+      <span class="th-city">Sevilha — Centro</span>
+      <span class="th-dishes">Espinacas · Pringá · Croquetas</span>
+    </div>
+    <div class="tapas-bar"><span class="tapas-emoji">🏺</span><div class="tapas-info"><div class="tapas-name">Bodega Díaz-Salazar — C/García Vinuesa</div><div class="tapas-desc">Chicharrones, torrija, vermute. Chão azulejo, muita história</div></div></div>
+    <div class="tapas-bar"><span class="tapas-emoji">🫘</span><div class="tapas-info"><div class="tapas-name">Casa Morales — C/García Vinuesa 11</div><div class="tapas-desc">Desde 1850. Espinacas con garbanzos, montaditos</div></div></div>
+    <div class="tapas-bar"><span class="tapas-emoji">🥪</span><div class="tapas-info"><div class="tapas-name">Bodega Antonio Romero</div><div class="tapas-desc">Montadito de pringá — o clássico sevilhano</div></div></div>
+    <div class="tapas-bar"><span class="tapas-emoji">🧆</span><div class="tapas-info"><div class="tapas-name">Casa Ricardo</div><div class="tapas-desc">Croquetas de puchero — as melhores da cidade</div></div></div>
+  </div>
+
+  <div class="tapas-block">
+    <div class="tapas-header">
+      <span class="th-city">Sevilha — Triana</span>
+      <span class="th-dishes">Solomillo · Chipirones · Almejas</span>
+    </div>
+    <div class="tapas-bar"><span class="tapas-emoji">🐟</span><div class="tapas-info"><div class="tapas-name">Las Golondrinas — C/Antillano Campos 26</div><div class="tapas-desc">~50 anos. Punta de solomillo, chipirones, almejas</div></div></div>
+    <div class="tapas-bar"><span class="tapas-emoji">🥩</span><div class="tapas-info"><div class="tapas-name">Sol y Sombra — Triana</div><div class="tapas-desc">Solomillo al ajo, embutidos. Ambiente de bairro puro</div></div></div>
+    <div class="tapas-bar"><span class="tapas-emoji">🫘</span><div class="tapas-info"><div class="tapas-name">Bar Los Cuevas — Triana</div><div class="tapas-desc">Garbanzos tagarninas, berenjenas fritas, revueltos</div></div></div>
+    <div class="tapas-bar"><span class="tapas-emoji">🍷</span><div class="tapas-info"><div class="tapas-name">Bodega La Albariza — C/Betis</div><div class="tapas-desc">Beira-rio com vistas. Vermute + tapas tradicionais</div></div></div>
+  </div>
+</div>
+
+<!-- SECTION: RESERVAS + DICAS -->
+<div class="section" id="s-info">
+  <div class="sec-title">Reservas</div>
+  <div class="sec-sub">Fazer agora — não deixar para última hora</div>
+
+  <div class="res-block">
+    <div class="res-header">⚠ RESERVAS OBRIGATÓRIAS</div>
+    <div class="res-item"><div class="res-num">1</div><div class="res-info"><div class="res-name">Alhambra — URGENTE</div><div class="res-url">alhambra-patronato.es</div></div></div>
+    <div class="res-item"><div class="res-num">2</div><div class="res-info"><div class="res-name">Real Alcázar de Sevilha</div><div class="res-url">alcazarsevilla.org</div></div></div>
+    <div class="res-item"><div class="res-num">3</div><div class="res-info"><div class="res-name">Mezquita de Córdoba</div><div class="res-url">mezquita-catedraldecordoba.es</div></div></div>
+    <div class="res-item"><div class="res-num">4</div><div class="res-info"><div class="res-name">Flamenco em Sevilha</div><div class="res-url">1-2 semanas antes da data</div></div></div>
+    <div class="res-item"><div class="res-num">5</div><div class="res-info"><div class="res-name">AVE Sevilha → Madrid</div><div class="res-url">renfe.com — quanto antes</div></div></div>
+    <div class="res-item"><div class="res-num">6</div><div class="res-info"><div class="res-name">Baños Árabes de Ronda</div><div class="res-url">verificar horários e reservar</div></div></div>
+    <div class="res-item"><div class="res-num">7</div><div class="res-info"><div class="res-name">Adega em Jerez</div><div class="res-url">gonzalezbyass.es ou sandeman.eu</div></div></div>
+  </div>
+
+  <div class="divider"></div>
+  <div class="sec-title">Granada Card</div>
+  <div class="sec-sub">Atrações cobertas pelo [GC]</div>
+
+  <div class="gc-box">
+    <div class="gc-header">🎫 Coberto pelo Granada Card</div>
+    <div class="gc-item"><span class="gc-badge">GC</span>Alhambra completa — Alcazaba, Generalife, Palácios Nazaríes (horário 16h30)</div>
+    <div class="gc-item"><span class="gc-badge">GC</span>Capilla Real — túmulos de Fernando e Isabel</div>
+    <div class="gc-item"><span class="gc-badge">GC</span>Catedral de Granada</div>
+    <div class="gc-item"><span class="gc-badge">GC</span>9 viagens de ônibus urbano (usar para Alhambra e Cartuja)</div>
+    <div class="gc-item"><span class="gc-badge">GC</span>1 volta no trem turístico</div>
+    <div class="gc-item"><span class="gc-badge">OPC</span>Monasterio de San Jerónimo — manhã dia 21 (Opção B · 45min)</div>
+    <div class="gc-item"><span class="gc-badge">OPC</span>Monasterio de la Cartuja — fora do centro, ônibus linha 8</div>
+    <div class="gc-item"><span class="gc-badge">OPC</span>Abadía del Sacromonte — visita guiada, verificar horários</div>
+    <div class="gc-item"><span class="gc-badge">OPC</span>Casa de Zafra + Cuarto Real — pequenas, no Albaicín</div>
+  </div>
+
+  <div class="divider"></div>
+  <div class="sec-title">Regras</div>
+  <div class="sec-sub">Do tapeo andaluz</div>
+
+  <div class="tips-block">
+    <h3>Regras de ouro</h3>
+    <div class="tip-item"><div class="tip-dot"></div><span class="tip-text">Almoço: nunca antes das 14h. Jantar: após 21h.</span></div>
+    <div class="tip-item"><div class="tip-dot"></div><span class="tip-text">Sempre na barra — mais barato e autêntico.</span></div>
+    <div class="tip-item"><div class="tip-dot"></div><span class="tip-text">Granada: tapa grátis com cada bebida. Cobrar = armadilha.</span></div>
+    <div class="tip-item"><div class="tip-dot"></div><span class="tip-text">Cádiz: só peixe. Carne aqui é desperdício de viagem.</span></div>
+    <div class="tip-item"><div class="tip-dot"></div><span class="tip-text">Albaicín: táxi ao topo, descer a pé pelas ruelas.</span></div>
+    <div class="tip-item"><div class="tip-dot"></div><span class="tip-text">Setenil: só visual de manhã. Almoço em Vejer.</span></div>
+    <div class="tip-item"><div class="tip-dot"></div><span class="tip-text">Plaza de España: antes das 9h ou arrependimento.</span></div>
+    <div class="tip-item"><div class="tip-dot"></div><span class="tip-text">Peça o desconhecido: ortiguillas, pringá, remojón.</span></div>
+  </div>
+</div>
+
+<!-- BOTTOM NAV -->
+<nav class="bottom-nav">
+  <button class="nav-btn active" onclick="showSection('s-overview', this)">
+    <span class="icon">🗺</span>Visão Geral
+  </button>
+  <button class="nav-btn" onclick="showSection('s-dias', this)">
+    <span class="icon">📅</span>Dia a Dia
+  </button>
+  <button class="nav-btn" onclick="showSection('s-tapas', this)">
+    <span class="icon">🍷</span>Tapas
+  </button>
+  <button class="nav-btn" onclick="showSection('s-info', this)">
+    <span class="icon">✅</span>Reservas
+  </button>
+</nav>
+
+<script>
+function showSection(id, btn) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+  window.scrollTo(0, 0);
+}
+
+function showDay(id) {
+  document.querySelectorAll('.day-content').forEach(d => d.style.display = 'none');
+  document.querySelectorAll('.day-nav-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).style.display = 'block';
+  event.target.classList.add('active');
+  // scroll the selected button into view
+  event.target.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+}
+
+// Init: show only day 18
+document.querySelectorAll('.day-content').forEach(d => d.style.display = 'none');
+document.getElementById('d18').style.display = 'block';
+</script>
+</body>
+</html>
