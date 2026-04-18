@@ -6,7 +6,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Andalusia">
-<title>Roteiro Andalusia · Abril 2025</title>
+<title>Roteiro Andalusia · Abril 2026</title>
 <style>
   /* Fontes do sistema — 100% offline, óptimas no iPhone */
   /* Serif display: Georgia → fallback robusto e elegante */
@@ -167,7 +167,7 @@
     align-items: baseline;
     justify-content: space-between;
   }
-  .day-card-header .date {
+  .day-card-header .daté {
     font-family: Georgia, 'Times New Roman', serif;
     font-size: 32px;
     font-weight: 900;
@@ -414,7 +414,7 @@
   }
   .transport-table .tt-row:last-child { border-bottom: none; }
   .transport-table .tt-row.alt { background: rgba(255,255,255,0.06); }
-  .transport-table .tt-date { font-size: 13px; font-weight: 700; color: var(--gold); }
+  .transport-table .tt-daté { font-size: 13px; font-weight: 700; color: var(--gold); }
   .transport-table .tt-trip { font-size: 13px; color: rgba(255,255,255,0.85); }
   .transport-table .tt-dist { font-size: 12px; color: rgba(255,255,255,0.5); }
   .transport-table .tt-time { font-size: 13px; color: var(--white); font-weight: 500; text-align: right; }
@@ -634,7 +634,7 @@
     text-transform: uppercase;
     letter-spacing: 0.5px;
   }
-  .feria-col-date {
+  .feria-col-daté {
     font-size: 13px;
     font-weight: 700;
     color: var(--feria);
@@ -691,13 +691,13 @@
 <!-- TOP HEADER -->
 <div class="app-header">
   <h1>Roteiro Andalusia</h1>
-  <p>18 – 28 Abril 2025 &nbsp;·&nbsp; 10 noites</p>
+  <p>18 – 28 Abril 2026 &nbsp;·&nbsp; 10 noites</p>
 </div>
 
 <!-- SECTION: VISÃO GERAL -->
 <div class="section active" id="s-overview">
   <div class="cover-card">
-    <h2>Andalusia<br>Abril 2025</h2>
+    <h2>Andalusia<br>Abril 2026</h2>
     <div class="dates">18 – 28 Abril · 10 noites</div>
     <div class="cover-cities">
       <span class="cover-city-pill">Córdoba</span>
@@ -764,17 +764,17 @@
 
   <!-- Day nav -->
   <div class="day-nav">
-    <button class="day-nav-btn active" onclick="showDay('d18')">18 Sex</button>
-    <button class="day-nav-btn" onclick="showDay('d19')">19 Sáb</button>
-    <button class="day-nav-btn" onclick="showDay('d20')">20 Dom</button>
-    <button class="day-nav-btn" onclick="showDay('d21')">21 Seg</button>
-    <button class="day-nav-btn" onclick="showDay('d22')">22 Ter</button>
-    <button class="day-nav-btn" onclick="showDay('d23')">23 Qua</button>
-    <button class="day-nav-btn" onclick="showDay('d24')">24 Qui</button>
-    <button class="day-nav-btn" onclick="showDay('d25')">25 Sex</button>
-    <button class="day-nav-btn" onclick="showDay('d26')">26 Sáb</button>
-    <button class="day-nav-btn" onclick="showDay('d27')">27 Dom</button>
-    <button class="day-nav-btn" onclick="showDay('d28')">28 Seg</button>
+    <button class="day-nav-btn active" onclick="showDay('d18')">18 Sáb</button>
+    <button class="day-nav-btn" onclick="showDay('d19')">19 Dom</button>
+    <button class="day-nav-btn" onclick="showDay('d20')">20 Seg</button>
+    <button class="day-nav-btn" onclick="showDay('d21')">21 Ter</button>
+    <button class="day-nav-btn" onclick="showDay('d22')">22 Qua</button>
+    <button class="day-nav-btn" onclick="showDay('d23')">23 Qui</button>
+    <button class="day-nav-btn" onclick="showDay('d24')">24 Sex</button>
+    <button class="day-nav-btn" onclick="showDay('d25')">25 Sáb</button>
+    <button class="day-nav-btn" onclick="showDay('d26')">26 Dom</button>
+    <button class="day-nav-btn" onclick="showDay('d27')">27 Seg</button>
+    <button class="day-nav-btn" onclick="showDay('d28')">28 Ter</button>
   </div>
 
   <!-- DAY 18 -->
@@ -782,7 +782,7 @@
     <div class="day-card">
       <div class="day-card-header bg-cordoba">
         <div class="date-row"><span class="date">18/04</span><span class="day-pill">Córdoba</span></div>
-        <div class="weekday">Sexta — chegada</div>
+        <div class="weekday">Sábado — chegada</div>
       </div>
       <div class="day-body">
         <div class="schedule-item"><span class="sched-time">17h30</span><div class="sched-dot dot-cordoba"></div><span class="sched-text">Chegada, check-in</span></div>
@@ -801,7 +801,7 @@
           <div><span class="from-label"></span><span class="date">19/04</span></div>
           <div style="display:flex;align-items:center;gap:6px"><span class="from-label">Córdoba</span><span class="day-pill">Granada</span></div>
         </div>
-        <div class="weekday">Sábado — manhã Córdoba + partida</div>
+        <div class="weekday">Domingo — manhã Córdoba + partida</div>
       </div>
       <div class="day-body">
         <div class="schedule-item"><span class="sched-time">08h30</span><div class="sched-dot dot-cordoba"></div><span class="sched-text">Mezquita-Catedral<em>Quase vazia, luz dos arcos — o melhor horário</em></span></div>
@@ -825,7 +825,7 @@
     <div class="day-card">
       <div class="day-card-header bg-granada">
         <div class="date-row"><span class="date">20/04</span><span class="day-pill">Granada</span></div>
-        <div class="weekday">Domingo — dia completo · Granada Card [GC]</div>
+        <div class="weekday">Segunda — dia completo · Granada Card [GC]</div>
       </div>
       <div class="day-body">
         <div class="schedule-item"><span class="sched-time">09h45</span><div class="sched-dot dot-granada"></div><span class="sched-text">[GC] Capilla Real<em>Túmulos de Fernando e Isabel</em></span></div>
@@ -837,7 +837,7 @@
         <div class="schedule-item"><span class="sched-time">15h15</span><div class="sched-dot dot-granada"></div><span class="sched-text">Pausa real 15-20min — sombra + água</span></div>
         <div class="schedule-item"><span class="sched-time">16h10</span><div class="sched-dot dot-granada"></div><span class="sched-text">Posicionar para entrada nos Nazaríes</span></div>
         <div class="schedule-item"><span class="sched-time">16h30</span><div class="sched-dot dot-granada"></div><span class="sched-text">[GC] Palácios Nazaríes ⭐<em>HORÁRIO FIXO — chegar 15min antes</em></span></div>
-        <div class="schedule-item"><span class="sched-time">18h15</span><div class="sched-dot dot-granada"></div><span class="sched-text">Descida pela Cuesta de Gomérez<em>Devagar, guitarristas nas escadas</em></span></div>
+        <div class="schedule-item"><span class="sched-time">18h15</span><div class="sched-dot dot-granada"></div><span class="sched-text">Descida péla Cuesta de Gomérez<em>Devagar, guitarristas nas escadas</em></span></div>
         <div class="schedule-item"><span class="sched-time">Noite</span><div class="sched-dot dot-granada"></div><span class="sched-text">Bodegas Castañeda — leve e merecido</span></div>
       </div>
       <div class="card-warn">⚠ Nazaríes 16h30 — horário FIXO. Não atrasar.</div>
@@ -852,7 +852,7 @@
           <span class="date">21/04</span>
           <div style="display:flex;align-items:center;gap:6px"><span class="from-label">Granada</span><span class="day-pill">Ronda</span></div>
         </div>
-        <div class="weekday">Segunda — manhã leve + partida</div>
+        <div class="weekday">Terça — manhã leve + partida</div>
       </div>
       <div class="day-body">
         <div class="schedule-item"><span class="sched-time">09h30</span><div class="sched-dot dot-granada"></div><span class="sched-text">Caminhada leve pelo centro / Albaicín baixo<em>Cidade vazia — muito melhor que mais monumentos</em></span></div>
@@ -873,7 +873,7 @@
     <div class="day-card">
       <div class="day-card-header bg-ronda">
         <div class="date-row"><span class="date">22/04</span><span class="day-pill">Ronda</span></div>
-        <div class="weekday">Terça — Ronda completa</div>
+        <div class="weekday">Quarta — Ronda completa</div>
       </div>
       <div class="day-body">
         <div class="schedule-item"><span class="sched-time">08h45</span><div class="sched-dot dot-ronda"></div><span class="sched-text">Puente Nuevo<em>Cidade praticamente vazia — melhor hora</em></span></div>
@@ -881,7 +881,7 @@
         <div class="schedule-item"><span class="sched-time">11h30</span><div class="sched-dot dot-ronda"></div><span class="sched-text">Pausa — café tranquilo, recuperar energia</span></div>
         <div class="schedule-item"><span class="sched-time">13h00</span><div class="sched-dot dot-ronda"></div><span class="sched-text">Plaza de Toros (1785 — a mais antiga da Espanha)</span></div>
         <div class="schedule-item"><span class="sched-time">14h30</span><div class="sched-dot dot-ronda"></div><span class="sched-text">Baños Árabes<em>Verificar horários e reservar antes</em></span></div>
-        <div class="schedule-item"><span class="sched-time">Tarde</span><div class="sched-dot dot-ronda"></div><span class="sched-text">Tarde livre — Ronda pede tempo solto</span></div>
+        <div class="schedule-item"><span class="sched-time">Tarde</span><div class="sched-dot dot-ronda"></div><span class="sched-text">Tarde livre — Ronda péde tempo solto</span></div>
         <div class="schedule-item"><span class="sched-time">Noite</span><div class="sched-dot dot-ronda"></div><span class="sched-text">2ª rota de tapas</span></div>
       </div>
     </div>
@@ -895,7 +895,7 @@
           <span class="date">23/04</span>
           <div style="display:flex;align-items:center;gap:6px"><span class="from-label">Ronda</span><span class="day-pill">Cádiz</span></div>
         </div>
-        <div class="weekday">Quarta — Setenil + Vejer + chegada Cádiz</div>
+        <div class="weekday">Quinta — Setenil + Vejer + chegada Cádiz</div>
       </div>
       <div class="day-body">
         <div class="schedule-item"><span class="sched-time">08h45</span><div class="sched-dot dot-ronda"></div><span class="sched-text">Saída para Setenil (~25min)</span></div>
@@ -919,7 +919,7 @@
     <div class="day-card">
       <div class="day-card-header bg-cadiz">
         <div class="date-row"><span class="date">24/04</span><span class="day-pill">Cádiz</span></div>
-        <div class="weekday">Quinta — Cádiz completo</div>
+        <div class="weekday">Sexta — Cádiz completo</div>
       </div>
       <div class="day-body">
         <div class="schedule-item"><span class="sched-time">10h00</span><div class="sched-dot dot-cadiz"></div><span class="sched-text">Catedral de Cádiz<em>~45min, objetiva</em></span></div>
@@ -940,7 +940,7 @@
           <span class="date">25/04</span>
           <div style="display:flex;align-items:center;gap:6px"><span class="from-label">Cádiz</span><span class="day-pill">Sevilha</span></div>
         </div>
-        <div class="weekday">Sexta — Jerez + chegada · 1ª noite da Feria</div>
+        <div class="weekday">Sábado — Jerez + chegada · 1ª noite da Feria</div>
       </div>
       <div class="day-body">
         <div class="schedule-item"><span class="sched-time">09h00</span><div class="sched-dot dot-cadiz"></div><span class="sched-text">Saída para Jerez (~35min)</span></div>
@@ -948,12 +948,10 @@
         <div class="schedule-item"><span class="sched-time">12h00</span><div class="sched-dot" style="background:var(--amber)"></div><span class="sched-text">Bar Juanito — tapas clássicas de Jerez</span></div>
         <div class="schedule-item"><span class="sched-time">13h15</span><div class="sched-dot" style="background:var(--amber)"></div><span class="sched-text">Saída para Sevilha (~1h15)</span></div>
         <div class="schedule-item"><span class="sched-time">14h30</span><div class="sched-dot dot-sevilla"></div><span class="sched-text">DEVOLVER CARRO ✓ + check-in</span></div>
-        <div class="schedule-item"><span class="sched-time">15h30</span><div class="sched-dot dot-sevilla"></div><span class="sched-text">Descanso 1h antes de sair</span></div>
-        <div class="schedule-item"><span class="sched-time">17h00</span><div class="sched-dot dot-sevilla"></div><span class="sched-text">Real Alcázar<em>Ir hoje — menos fila que no fim de semana · 2h</em></span></div>
-        <div class="schedule-item"><span class="sched-time">20h00</span><div class="sched-dot dot-sevilla"></div><span class="sched-text">Santa Cruz: tapas rápidas</span></div>
-        <div class="schedule-item"><span class="sched-time">22h00</span><div class="sched-dot dot-feria"></div><span class="sched-text">🌸 Real de la Feria (Los Remedios)<em>1ª visita · alumbrado, sevillanas, atmosfera</em></span></div>
+        <div class="schedule-item"><span class="sched-time">15h30</span><div class="sched-dot dot-sevilla"></div><span class="sched-text">Descanso real (obrigatório)</span></div>
+        <div class="schedule-item"><span class="sched-time">20h00</span><div class="sched-dot dot-sevilla"></div><span class="sched-text">Tapas rápidas em Santa Cruz</span></div>
+        <div class="schedule-item"><span class="sched-time">22h00</span><div class="sched-dot dot-feria"></div><span class="sched-text">🌸 Real de la Feria<em>1ª noite · alumbrado, sevillanas, atmosfera</em></span></div>
       </div>
-      <div class="card-warn">⚠ Alcázar: reservar online em alcazarsevilla.org</div>
       <div class="card-footer foot-sevilla">Cádiz->Jerez ~35min · Jerez->Sevilha ~1h15</div>
     </div>
   </div>
@@ -963,7 +961,7 @@
     <div class="day-card">
       <div class="day-card-header bg-sevilla">
         <div class="date-row"><span class="date">26/04</span><span class="day-pill">Sevilha</span></div>
-        <div class="weekday">Sábado — Feria no auge 🌸</div>
+        <div class="weekday">Domingo — último dia da Feria 🌸</div>
       </div>
       <div class="day-body">
         <div class="schedule-item"><span class="sched-time">09h00</span><div class="sched-dot dot-sevilla"></div><span class="sched-text">Catedral + subida à Giralda<em>Ir cedo — fica mais lotada ao longo do dia</em></span></div>
@@ -981,15 +979,13 @@
     <div class="day-card">
       <div class="day-card-header bg-sevilla">
         <div class="date-row"><span class="date">27/04</span><span class="day-pill">Sevilha</span></div>
-        <div class="weekday">Domingo — último dia da Feria 🌸</div>
+        <div class="weekday">Segunda — pós-Feria</div>
       </div>
       <div class="day-body">
-        <div class="schedule-item"><span class="sched-time">08h45</span><div class="sched-dot dot-sevilla"></div><span class="sched-text">Plaza de España — CRÍTICO ir cedo!<em>Depois das 10h fica lotada</em></span></div>
-        <div class="schedule-item"><span class="sched-time">10h30</span><div class="sched-dot dot-sevilla"></div><span class="sched-text">Palacio de las Dueñas</span></div>
-        <div class="schedule-item"><span class="sched-time">13h00</span><div class="sched-dot dot-sevilla"></div><span class="sched-text">Mercado de Triana<em>Domingo cheio de vida</em></span></div>
-        <div class="schedule-item"><span class="sched-time">Tarde</span><div class="sched-dot dot-sevilla"></div><span class="sched-text">Torre del Oro (exterior) + passeio beira-rio<em>Tarde solta — não encher</em></span></div>
-        <div class="schedule-item"><span class="sched-time">22h00</span><div class="sched-dot dot-feria"></div><span class="sched-text">🌸 Real de la Feria — última vez</span></div>
-        <div class="schedule-item"><span class="sched-time">00h00</span><div class="sched-dot dot-feria"></div><span class="sched-text">🎆 Fogos no Guadalquivir<em>Encerramento oficial da Feria · espetáculo único</em></span></div>
+        <div class="schedule-item"><span class="sched-time">08h45</span><div class="sched-dot dot-sevilla"></div><span class="sched-text">Plaza de España — ir cedo!<em>Depois das 10h fica lotada</em></span></div>
+        <div class="schedule-item"><span class="sched-time">10h00</span><div class="sched-dot dot-sevilla"></div><span class="sched-text">Real Alcázar<em>Segunda = mínimo de fila, cidade ainda descansando</em></span></div>
+        <div class="schedule-item"><span class="sched-time">13h00</span><div class="sched-dot dot-sevilla"></div><span class="sched-text">Triana: almoço + tapas + beira-rio<em>Mercado de Triana + Las Golondrinas</em></span></div>
+        <div class="schedule-item"><span class="sched-time">Noite</span><div class="sched-dot dot-sevilla"></div><span class="sched-text">Última rota de tapas em Triana</span></div>
       </div>
     </div>
   </div>
@@ -999,7 +995,7 @@
     <div class="day-card">
       <div class="day-card-header bg-travel">
         <div class="date-row"><span class="date">28/04</span><span class="day-pill">Partida</span></div>
-        <div class="weekday">Segunda — regresso a Madrid</div>
+        <div class="weekday">Terça — regresso a Madrid</div>
       </div>
       <div class="day-body">
         <div class="schedule-item"><span class="sched-time">Manhã</span><div class="sched-dot" style="background:var(--gray)"></div><span class="sched-text">Última manhã livre em Santa Cruz</span></div>
@@ -1021,7 +1017,7 @@
       <span class="th-dishes">Salmorejo · Rabo de toro · Flamenquín</span>
     </div>
     <div class="tapas-bar"><span class="tapas-emoji">🫙</span><div class="tapas-info"><div class="tapas-name">Bar Santos</div><div class="tapas-desc">Tortilla gigante — em frente à Mezquita, instituição</div></div></div>
-    <div class="tapas-bar"><span class="tapas-emoji">🍲</span><div class="tapas-info"><div class="tapas-name">Taberna Salinas</div><div class="tapas-desc">Salmorejo, carne con tomate — a mais mítica</div></div></div>
+    <div class="tapas-bar"><span class="tapas-emoji">🍲</span><div class="tapas-info"><div class="tapas-name">Taberna Salinas</div><div class="tapas-desc">Salmorejo, carne con tomaté — a mais mítica</div></div></div>
     <div class="tapas-bar"><span class="tapas-emoji">🥗</span><div class="tapas-info"><div class="tapas-name">Taberna Los Berengueles</div><div class="tapas-desc">Ensaladilla caseira, rabo de toro, flamenquín</div></div></div>
     <div class="tapas-bar"><span class="tapas-emoji">🌿</span><div class="tapas-info"><div class="tapas-name">Casa Mazal</div><div class="tapas-desc">Pátio cordobês, tapas tradicionais, ambiente autêntico</div></div></div>
   </div>
